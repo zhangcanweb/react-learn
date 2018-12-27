@@ -1,45 +1,31 @@
-import React, { Component, Fragment } from 'react';
-import { Input, Button, List } from 'antd';
+import React, { Component } from 'react';
 import store from '../../store';
 import {getHandleInput, getHandleBtn, getHandleItem} from '../../store/actionCreator';
+import TodoListUi from './indexUI';
 
+//容器组件
 export default class TodoList extends Component{    
 	
 	constructor (props) {
 		super(props);
 		this.state = store.getState();
-		console.log(this.state);
     this.handleChang = this.handleChang.bind(this);
     this.handleStoreChange = this.handleStoreChange.bind(this);
     this.handleBtnClick = this.handleBtnClick.bind(this);
+    this.handleDeleteClick=this.handleDeleteClick.bind(this);
     store.subscribe(this.handleStoreChange);
 	}
 
   render () {
     return (
-			<Fragment>
-        <div style={{marginTop: '10px', marginLeft: '20px'}}>
-            <Input 
-              placeholder="todo info" 
-              value={this.state.inputValue} 
-              style={{width: '500px', marginRight: '20px'}}
-              onChange={this.handleChang}
-            />
-            <Button 
-              type="primary"
-              onClick={this.handleBtnClick}
-            >
-              提交
-            </Button>
-        </div>
-        <List
-					style={{width: '500px', marginTop: '10px', marginLeft: '20px'}}
-          bordered
-          dataSource={this.state.list}
-          renderItem={(item, index) => (<List.Item onClick={this.handleDeleteClick.bind(this, index)}>{item}</List.Item>)}
-        />
-			</Fragment>
-      )
+			<TodoListUi
+        inputValue={this.state.inputValue}
+        list={this.state.list}
+        handleChang={this.handleChang}
+        handleBtnClick={this.handleBtnClick}
+        handleDeleteClick={this.handleDeleteClick}
+      />
+    )
   }
   handleChang (e) {
     const action = getHandleInput(e.target.value);
