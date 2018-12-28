@@ -1,7 +1,7 @@
-import {INPUT_CHANGE_VALUE, LIST_ADD_ITEM, DELETE_ITEM} from './actionTypes';
+import {INPUT_CHANGE_VALUE, LIST_ADD_ITEM, DELETE_ITEM, INIT_LIST_ACTION} from './actionTypes';
 const defaultState = {
     inputValue: '',
-    list: ['无事可做']
+    list: []
 }
 export default (state=defaultState, action) => {
     if (action.type=== INPUT_CHANGE_VALUE) {
@@ -18,6 +18,11 @@ export default (state=defaultState, action) => {
     if (action.type===DELETE_ITEM) {
         const newState={...state};
         newState.list.splice(action.index, 1);
+        return newState;
+    }
+    if (action.type===INIT_LIST_ACTION) {
+        const newState={...state};
+        newState.list = action.data;
         return newState;
     }
     return state;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from '../../store';
-import {getHandleInput, getHandleBtn, getHandleItem} from '../../store/actionCreator';
+import {getHandleInput, getHandleBtn, getHandleItem, getListAction} from '../../store/actionCreator';
 import TodoListUi from './indexUI';
 
 //容器组件
@@ -26,6 +26,10 @@ export default class TodoList extends Component{
         handleDeleteClick={this.handleDeleteClick}
       />
     )
+  }
+  componentDidMount () {
+    const action = getListAction();
+    store.dispatch(action);
   }
   handleChang (e) {
     const action = getHandleInput(e.target.value);
