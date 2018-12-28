@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import store from '../../store';
-import {getHandleInput, getHandleBtn, getHandleItem, getListAction} from '../../store/actionCreator';
+import {getHandleInput, getHandleBtn, getHandleItem, initListSaga} from '../../store/actionCreator';
 import TodoListUi from './indexUI';
+// import axios from 'axios';
 
 //容器组件
 export default class TodoList extends Component{    
@@ -28,7 +29,7 @@ export default class TodoList extends Component{
     )
   }
   componentDidMount () {
-    const action = getListAction();
+    const action = initListSaga();
     store.dispatch(action);
   }
   handleChang (e) {
