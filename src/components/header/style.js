@@ -126,3 +126,68 @@ export const SerchIcon= styled.a`
     color: #fff;
   }
 `
+export const SearchInfo = styled.div`
+  width: 210px;
+  padding: 20px;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,.2);
+  left: 50px;
+  top: 57px;
+  border-radius: 4px;
+  z-index: 10;
+  &:after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-bottom-color: #fff;
+    left: 20px;
+    bottom: 99%;
+  }
+`
+export const SearchInfoTitle = styled.div`
+  width: 210px;
+  height: 20px;
+  line-height: 20px;
+`
+export const SearchTitleItem = styled.a`
+  color: #969696;
+  &.left{
+    float: left;
+    font-size: 14px;
+  }
+  &.right{
+    cursor: pointer;
+    float: right;
+    font-size: 13px;
+    .iconfont{
+      font-size: 10px;
+      margin-right: 3px;
+      font-weight: bold;
+    }
+  }
+`
+export const InfoList = styled.div`
+  width: 210px;
+  overflow:hidden;
+  margin-top: 10px;
+`
+export const InfoItem = styled.a`
+  cursor:pointer;
+  float: left;
+  height: 20px;
+  line-height: 20px;
+  padding: 2px;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin: 0 10px 10px 0;
+  &:hover{
+    color: #333;
+    border-color: #b4b4b4;
+  }
+}
+`
