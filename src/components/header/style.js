@@ -64,6 +64,7 @@ export const MiddleItem = styled.a`
   &.item-1{
     color: #ea6f5a;
     margin-right: 50px;
+    margin-left: 15px;
   }
   &.item-2{
     margin-right: 30px;
